@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Charge Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        input[type="text"], input[type="submit"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insurance Charge Prediction</h1>
+    <form action="/predict" method="POST">
+        <input type="text" name="age" placeholder="Age" required>
+        <input type="text" name="sex" placeholder="Sex (1 for female, 0 for male)" required>
+        <input type="text" name="bmi" placeholder="BMI" required>
+        <input type="text" name="children" placeholder="Children" required>
+        <input type="text" name="smoker" placeholder="Smoker (1 for yes, 0 for no)" required>
+        <input type="text" name="region" placeholder="Region (0-3)" required>
+        <input type="submit" value="Predict">
+    </form>
+    <div class="result">
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
