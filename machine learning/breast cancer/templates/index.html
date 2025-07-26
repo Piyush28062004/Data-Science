@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Survival Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-4">Breast Cancer Survival Prediction</h2>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" class="form-control" name="age" required>
+            </div>
+            <div class="form-group">
+                <label>Race (0=White, 1=Other):</label>
+                <input type="number" class="form-control" name="race" required>
+            </div>
+            <div class="form-group">
+                <label>Marital Status (0=Married, 1=Divorced, 2=Single):</label>
+                <input type="number" class="form-control" name="marital_status" required>
+            </div>
+            <div class="form-group">
+                <label>T Stage:</label>
+                <input type="number" class="form-control" name="t_stage" required>
+            </div>
+            <div class="form-group">
+                <label>N Stage:</label>
+                <input type="number" class="form-control" name="n_stage" required>
+            </div>
+            <div class="form-group">
+                <label>6th Stage:</label>
+                <input type="number" class="form-control" name="sixth_stage" required>
+            </div>
+            <div class="form-group">
+                <label>Differentiation (0=Moderate, 1=Poorly):</label>
+                <input type="number" class="form-control" name="differentiate" required>
+            </div>
+            <div class="form-group">
+                <label>Grade:</label>
+                <input type="number" class="form-control" name="grade" required>
+            </div>
+            <div class="form-group">
+                <label>A Stage:</label>
+                <input type="number" class="form-control" name="a_stage" required>
+            </div>
+            <div class="form-group">
+                <label>Tumor Size:</label>
+                <input type="number" class="form-control" name="tumor_size" required>
+            </div>
+            <div class="form-group">
+                <label>Estrogen Status (0=Negative, 1=Positive):</label>
+                <input type="number" class="form-control" name="estrogen_status" required>
+            </div>
+            <div class="form-group">
+                <label>Progesterone Status (0=Negative, 1=Positive):</label>
+                <input type="number" class="form-control" name="progesterone_status" required>
+            </div>
+            <div class="form-group">
+                <label>Regional Node Examined:</label>
+                <input type="number" class="form-control" name="regional_node_examined" required>
+            </div>
+            <div class="form-group">
+                <label>Regional Node Positive:</label>
+                <input type="number" class="form-control" name="regional_node_positive" required>
+            </div>
+            <div class="form-group">
+                <label>Survival Months:</label>
+                <input type="number" class="form-control" name="survival_months" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <br>
+        {% if prediction_text %}
+            <h4>{{ prediction_text }}</h4>
+        {% endif %}
+    </div>
+</body>
+</html>
